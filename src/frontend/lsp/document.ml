@@ -31,10 +31,7 @@ let make_config uri =
       directory;
     }
   } in
-  Mconfig.load_dotmerlins mconfig ~filenames:[
-    let base = "." ^ filename ^ ".merlin" in
-    Filename.concat directory base
-  ]
+  Mconfig.get_external_config path mconfig
 
 let make ?(version=0) ~uri ~text () =
   let tdoc = Lsp.Text_document.make ~version uri text in
